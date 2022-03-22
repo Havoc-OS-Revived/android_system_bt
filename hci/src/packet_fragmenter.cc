@@ -170,6 +170,9 @@ static void reassemble_and_dispatch(BT_HDR* packet) {
         return;
       }
 
+      uint16_t l2cap_length;
+      STREAM_TO_UINT16(l2cap_length, stream);
+
       uint16_t full_length =
           l2cap_length + L2CAP_HEADER_SIZE + HCI_ACL_PREAMBLE_SIZE;
 
